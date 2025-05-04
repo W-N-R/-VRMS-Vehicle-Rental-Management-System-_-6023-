@@ -62,7 +62,7 @@ void Car::displayInfo() const
 
 double Truck::calculateRentalCost(int days) const
 {
-   return (days * rentalPricePerDay) + (1.05 * (days * rentalPricePerDay));
+   return (days * rentalPricePerDay) + (0.05 * (days * rentalPricePerDay));
 }
 
 string Truck::getType() const
