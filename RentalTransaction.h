@@ -17,28 +17,13 @@ private:
     double totalCost;
 
 public:
-    RentalTransaction(const Customer* cust, const Vehicle* veh,
-        const Date& start, const Date& end)
-        : customer(cust), vehicle(veh),
-        rentalStartDate(start), rentalEndDate(end) {
-        int days = rentalEndDate - rentalStartDate; // Using overloaded operator
-        totalCost = vehicle->calculateRentalCost(days);
-    }
-
-    const Customer* getCustomer() const { return customer; }
-    const Vehicle* getVehicle() const { return vehicle; }
-    Date getStartDate() const { return rentalStartDate; }
-    Date getEndDate() const { return rentalEndDate; }
-    double getTotalCost() const { return totalCost; }
-
-    void displayInfo() const {
-        cout << "Rental Transaction:" << endl;
-        customer->displayInfo();
-        vehicle->displayInfo();
-        cout << "Start Date: " << rentalStartDate << endl;
-        cout << "End Date: " << rentalEndDate << endl;
-        cout << "Total Cost: " << totalCost << endl;
-    }
+    RentalTransaction(const Customer* cust, const Vehicle* veh, const Date& start, const Date& end);
+    const Customer* getCustomer() const;
+    const Vehicle* getVehicle() const;
+    Date getStartDate() const;
+    Date getEndDate() const;
+    double getTotalCost() const;
+    void displayInfo() const;
 };
 
 #endif // RENTALTRANSACTION_H
