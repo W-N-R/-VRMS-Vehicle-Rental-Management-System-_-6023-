@@ -15,7 +15,7 @@ private:
     int year;
 
 public:
-    Date(int d = 1, int m = 1, int y = 2000) : day(d), month(m), year(y) {}
+    Date(int d = 1, int m = 1, int y = 2000);
 
     // Getter methods
     int getDay() const { return day; }

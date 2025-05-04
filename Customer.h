@@ -15,19 +15,11 @@ private:
     string mobileNumber;
 
 public:
-    Customer(const string& name, const string& cnic, const string& mobile)
-        : name(name), cnic(cnic), mobileNumber(mobile) {
-    }
-
-    // Getters
-    string getName() const { return name; }
-    string getCNIC() const { return cnic; }
-    string getMobileNumber() const { return mobileNumber; }
-
-    void displayInfo() const {
-        cout << "Name: " << name << ", CNIC: " << cnic
-            << ", Mobile: " << mobileNumber << endl;
-    }
+    Customer(const string& name, const string& cnic, const string& mobile);
+    string getName() const;
+    string getCNIC() const;
+    string getMobileNumber() const;
+    void displayInfo() const;
 };
 
 #endif // CUSTOMER_H
