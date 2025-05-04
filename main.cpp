@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 #include "Vehicle.h"
 #include "Customer.h"
@@ -9,27 +9,26 @@
 using namespace std;
 
 void displayMenu() {
-    cout << "\n=== Vehicle Rental Management System ===" << endl;
-    cout << "1. Book a Vehicle" << endl;
-    cout << "2. Search Vehicle by Model" << endl;
-    cout << "3. Filter Vehicles by Price Range" << endl;
-    cout << "4. Show Rental History by Customer CNIC" << endl;
-    cout << "5. Add New Customer" << endl;
-    cout << "6. Show All Available Vehicles" << endl;
-    cout << "7. Exit" << endl;
+    cout << "\n      === Vehicle Rental Management System ===" << endl;
+    cout << "       ---------------->VRMS<----------------\n";
+    cout << "1. -> | Book a Vehicle                       |" << endl;
+    cout << "2. -> | Search Vehicle by Model              |" << endl;
+    cout << "3. -> | Filter Vehicles by Price Range       |" << endl;
+    cout << "4. -> | Show Rental History by Customer CNIC |" << endl;
+    cout << "5. -> | Add New Customer                     |" << endl;
+    cout << "6. -> | Show All Available Vehicles          |" << endl;
+    cout << "7. -> | Exit                                 |" << endl;
+    cout << "       --------------------------------------" << endl;
     cout << "Enter your choice (1-7): ";
 }
 
-void initializeSampleData(List<Vehicle*>& vehicles, List<Customer*>& customers) {
-    // Add sample vehicles
+void initializeSampleData(List<Vehicle*>& vehicles) {
     vehicles.add(new Car("Honda Civic", 2020, 4000));
-    vehicles.add(new Truck("WNR tank91", 2018, 5000));
+    vehicles.add(new Truck("WNR tank91", 2020, 5000));
     vehicles.add(new Car("Toyota Corolla", 2019, 3500));
     vehicles.add(new Truck("WNR tank91", 2021, 7000));
-
-    // Add sample customers
-    customers.add(new Customer("Ali Khan", "12345-6789012-3", "0300-1234567"));
-    customers.add(new Customer("Sara Ahmed", "98765-4321098-7", "0312-7654321"));
+    vehicles.add(new Car("Hyundai Tucson", 2025, 4500));
+    vehicles.add(new Truck("WNR tank92", 2025, 10000));
 }
 
 void showAvailableVehicles(const List<Vehicle*>& vehicles) {
@@ -103,6 +102,8 @@ void bookVehicle(List<Vehicle*>& vehicles, List<Customer*>& customers, List<Rent
     cout << "Vehicle: " << vehicles[vehicleIndex]->getModel() << endl;
     cout << "Period: " << startDate << " to " << endDate << endl;
     cout << "Total cost: " << vehicles[vehicleIndex]->calculateRentalCost(endDate - startDate) << endl;
+    cout << "total days: " << endDate - startDate << endl;
+
 }
 
 void searchVehicleByModel(const List<Vehicle*>& vehicles) {
@@ -180,7 +181,6 @@ void addNewCustomer(List<Customer*>& customers) {
     cout << "Enter customer mobile number: ";
     getline(cin, mobile);
 
-    // Check if customer already exists
     for (int i = 0; i < customers.size(); i++) {
         if (customers[i]->getCNIC() == cnic) {
             cout << "Customer with this CNIC already exists!" << endl;
@@ -197,13 +197,13 @@ int main() {
     List<Customer*> customers(50);
     List<RentalTransaction*> transactions(200);
 
-    initializeSampleData(vehicles, customers);
+    initializeSampleData(vehicles);
 
     int choice;
     do {
         displayMenu();
         cin >> choice;
-        cin.ignore(); // Clear input buffer
+        cin.ignore(); 
 
         switch (choice) {
         case 1:
@@ -233,7 +233,6 @@ int main() {
         }
     } while (choice != 7);
 
-    // Clean up memory
     for (int i = 0; i < vehicles.size(); i++) {
         delete vehicles[i];
     }
