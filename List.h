@@ -5,7 +5,7 @@
 
 using namespace std;
 
-template <class genaric_data_type>
+template <typename genaric_data_type>
 class List {
 private:
     genaric_data_type* items;
@@ -23,7 +23,6 @@ public:
 
     void add(const genaric_data_type& item) {
         if (count >= capacity) {
-            // Resize the array
             capacity *= 2;
             genaric_data_type* newItems = new genaric_data_type[capacity];
             for (int i = 0; i < count; i++) {
@@ -42,11 +41,11 @@ public:
         return items[index];
     }
 
-    const genaric_data_type& get(int index) const {
-        if (index < 0 || index >= count) {
+    const genaric_data_type& get(int ref_index) const {
+        if (ref_index < 0 || ref_index >= count) {
             throw out_of_range("Index out of bounds");
         }
-        return items[index];
+        return items[ref_index];
     }
 
     int size() const {
@@ -63,7 +62,6 @@ public:
         count--;
     }
 
-    // Operator overloading for array-like access
     genaric_data_type& operator[](int index) {
         return get(index);
     }
@@ -73,4 +71,4 @@ public:
     }
 };
 
-#endif // LIST_H
+#endif 
