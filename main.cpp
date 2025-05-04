@@ -23,9 +23,9 @@ void displayMenu() {
 void initializeSampleData(List<Vehicle*>& vehicles, List<Customer*>& customers) {
     // Add sample vehicles
     vehicles.add(new Car("Honda Civic", 2020, 4000));
-    vehicles.add(new Truck("Ford F150", 2018, 5000));
+    vehicles.add(new Truck("WNR tank91", 2018, 5000));
     vehicles.add(new Car("Toyota Corolla", 2019, 3500));
-    vehicles.add(new Truck("Mazda Titan", 2021, 7000));
+    vehicles.add(new Truck("WNR tank91", 2021, 7000));
 
     // Add sample customers
     customers.add(new Customer("Ali Khan", "12345-6789012-3", "0300-1234567"));
