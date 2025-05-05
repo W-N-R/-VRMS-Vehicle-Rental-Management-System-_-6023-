@@ -9,7 +9,6 @@
 using namespace std;
 
 void displayMenu() {
-    cout << "\n      === Vehicle Rental Management System ===" << endl;
     cout << "       ---------------->VRMS<----------------\n";
     cout << "1. -> | Book a Vehicle                       |" << endl;
     cout << "2. -> | Search Vehicle by Model              |" << endl;
@@ -17,7 +16,7 @@ void displayMenu() {
     cout << "4. -> | Show Rental History by Customer CNIC |" << endl;
     cout << "5. -> | Add New Customer                     |" << endl;
     cout << "6. -> | Show All Available Vehicles          |" << endl;
-    cout << "7. -> | Exit                                 |" << endl;
+    cout << "6. -> | Exit                                 |" << endl;
     cout << "       --------------------------------------" << endl;
     cout << "Enter your choice (1-7): ";
 }
@@ -221,10 +220,10 @@ int main() {
         case 5:
             addNewCustomer(customers);
             break;
-        case 6:
+        case 7:
             showAvailableVehicles(vehicles);
             break;
-        case 7:
+        case 6:
             cout << "Exiting system. Goodbye!" << endl;
             break;
         default:
